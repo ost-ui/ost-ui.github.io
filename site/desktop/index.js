@@ -2,19 +2,16 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import 'babel-polyfill';
 import 'core-js';
-import MyComponent from '../site/index'
+import App from './src/app';
+
 
 ReactDOM.render(
-  <MyComponent />,
+  <App/>,
   document.getElementById('app')
 )
 
 if (module.hot) {
-  module.hot.accept('../app/index', () => {
+  module.hot.accept('./src/app.jsx', () => {
     window.location.reload();
-    // ReactDOM.render(
-    //   <MyComponent />,
-    //   document.getElementById('app')
-    // )
   });
 }

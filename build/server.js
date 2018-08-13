@@ -4,14 +4,19 @@ const path = require('path');
 const webpack = require('webpack');
 const WebpackDevServer = require('webpack-dev-server');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const cwd = path.join(__dirname, '../');
+const arguments = process.argv.splice(2);
+const config = require(path.join(cwd, arguments[0]));
+const {PORT, entry} = config;
+
 
 new WebpackDevServer(webpack({
   mode: 'development',
   devtool: 'eval',
   entry: [
-    'webpack-dev-server/client?http://localhost:3000',
+    `webpack-dev-server/client?http://localhost:${PORT}`,
     'webpack/hot/only-dev-server',
-    './index.js'
+    (() => {for (const key in entry) return entry[key]})()
   ],
   output: {
     path: path.join(__dirname, '../dist'),
@@ -34,7 +39,9 @@ new WebpackDevServer(webpack({
         loader: 'babel-loader',
         include: [
           path.join(__dirname, './'),
-          path.join(__dirname, '../app')
+          path.join(__dirname, '../site'),
+          path.join(__dirname, '../components'),
+          path.join(__dirname, '../libs')
         ]
       },
       {
@@ -64,7 +71,8 @@ new WebpackDevServer(webpack({
   hot: true,
   historyApiFallback: true,
   stats: { colors: true }
-}).listen(3001, error => {
+}).listen(PORT, '0.0.0.0', error => {
+  console.log(`Starting server on http://localhost:${PORT}`);
   if (error) {
     throw error;
   }

@@ -2,15 +2,17 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const cwd = path.join(__dirname, '../');
+const arguments = process.argv.splice(2);
+const configPath = arguments.filter(str => /--c-path/g.test(str))[0].split(':')[1];
+const config = require(path.join(cwd, configPath));
+const {entry, output} = config;
 
-const basePath = path.resolve(__dirname, '../');
 
 module.exports = {
-  entry: {
-    app: path.join(basePath, './build')
-  },
+  entry: entry,
   output: {
-    path: path.resolve(basePath, './dist'),
+    path: output.path,
     chunkFilename: 'static/js/[name].[chunkhash:12].js',
     filename: '[name].[chunkhash:12].js'
   },
@@ -21,14 +23,14 @@ module.exports = {
             vendor: {
                 name: 'vendors',
                 chunks: 'all',
-                test: /react|redux|core-js/,
+                test: /react|core-js/,
                 priority: 10,
                 enforce: true
             },
             dependencies: {
                 name: 'dependencies',
                 chunks: 'all',
-                test: /^((?!react|redux|core-js).)*node_modules((?!react|redux|core-js).)*$/,
+                test: /^((?!react|core-js).)*node_modules((?!react|core-js).)*$/,
                 priority: 10,
                 enforce: true
             },
@@ -49,7 +51,7 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       template: './index.html',
-      favicon: path.join(basePath, 'favicon.ico')
+      favicon: path.join(cwd, 'favicon.ico')
     })
   ].concat(process.env.TRAVIS_CI ? [] : [
     new webpack.DefinePlugin({ 'process.env.NODE_ENV': JSON.stringify('production') }),
@@ -64,8 +66,10 @@ module.exports = {
         test: /\.jsx?$/,
         loader: 'babel-loader',
         include: [
-          path.join(basePath, './app'),
-          path.join(basePath, './build')
+          path.join(__dirname, './'),
+          path.join(__dirname, '../site'),
+          path.join(__dirname, '../components'),
+          path.join(__dirname, '../libs')
         ]
       },
       {
