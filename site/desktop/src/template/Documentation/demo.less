@@ -14,6 +14,8 @@
         display: block;
         background: url('./images/topBar.png') no-repeat;
         background-size: 100% 100%;
+        border-top-left-radius: 6px;
+        border-top-right-radius: 6px;
       }
       header {
         height: 40px;
@@ -22,6 +24,7 @@
         justify-content: center;
         align-items: center;
         position: relative;
+        background: #fff;
         button {
           @line-h-w: 12px;
           @line-border: 2px solid rgb(214, 220, 233);
@@ -34,10 +37,13 @@
           transform: rotate(-45deg);
         }
       }
-      iframe {
-        width: 100%;
-        height: 600px;
-        max-height: 617px;
+      &-iframe {
+        font-size: 0;
+        iframe {
+          width: 100%;
+          height: 600px;
+          max-height: 617px;
+        }
       }
     }
   }

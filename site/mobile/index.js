@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import 'babel-polyfill';
 import 'core-js';
-import App from './src/index'
+import App from './src/app'
 
 ReactDOM.render(
   <App/>,
@@ -10,7 +10,7 @@ ReactDOM.render(
 )
 
 if (module.hot) {
-  module.hot.accept('./src/index', () => {
+  module.hot.accept('./src/app', () => {
     window.location.reload();
   });
 }
