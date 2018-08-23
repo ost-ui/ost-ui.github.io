@@ -1,10 +1,26 @@
 .ost-home-list {
+  @headerHeight: 40px;
   width: 100%;
   height: 100%;
   background: #f3f5f7;
-  overflow-x: hidden;
-  overflow-y: auto; 
+  position: relative;
+  header {
+    height: @headerHeight;
+    border-bottom: 1px solid rgb(235, 236, 240);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 999;
+  }
   ul {
+    height: 100%;
+    padding-top: @headerHeight;
+    overflow-x: hidden;
+    overflow-y: auto;
     li {
       width: initial;
       height: 44px;

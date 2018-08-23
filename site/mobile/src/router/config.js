@@ -1,10 +1,15 @@
 import Home from '../template/Home';
-// import Documentation from '../template/Documentation';
-
+import Component from '../template/Component';
+import * as component from '../../../../components'
 
 const routes = [
-  { path: '/', name: 'Home', component: Home },
-  // { path: '/Documentation', name: 'Documentation', component: Documentation }
+  { path: '/', name: 'Home', component: Home }
 ];
+
+for (const key in component) {
+  const route = { path: `/${key}`, name: `component_${key}`, component: Component };
+  routes.push(route);
+}
+
 
 export default routes;

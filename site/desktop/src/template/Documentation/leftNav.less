@@ -1,7 +1,8 @@
 .ost-leftNav {
-  width: 180px;
-  min-width: 150px;
-  max-width: 250px;
+  @lWidth: 100%;
+  max-width: @lWidth;
+  min-width: @lWidth;
+  width: @lWidth;
   min-height: 100%;
   padding-top: 40px;
   padding-left: 20px;
@@ -13,6 +14,9 @@
     align-items: center;
     font-size: 14px;
     color: #333;
+  }
+  &-active {
+    background: rgb(232, 243, 255);
   }
 }
 

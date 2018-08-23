@@ -7,11 +7,17 @@ import './index.less';
 export default class Documentation extends React.Component {
 
   render() {
+    const {history} = this.props;
+    
     return (
       <div className="ost-documentation">
-        <LeftNav/>
-        <Content/>
-        <Demo/>
+        <div className="ost-documentation-left-main">
+          <LeftNav history={history} />
+        </div>
+        <div className="ost-documentation-right-main">
+          <Content/>
+          <Demo/>
+        </div>
       </div>
     );
   }

@@ -7,9 +7,8 @@ export default class App extends React.Component {
   constructor(props) {
     super(props);
     document.title = 'ost-ui 移动组件库';
-    console.log('NODE_ENV===>', process.env.NODE_ENV);
   }
-
+  
   render() {
     return (
       <RouteConfig/>

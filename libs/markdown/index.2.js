@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import prismjs from 'prismjs';
-import marked from 'marked';
+import ReactMarkdown from 'react-markdown';
 import './prism.css'
+import './md.less'
 
 class Markdown extends Component {
     constructor(props) {
@@ -13,26 +14,14 @@ class Markdown extends Component {
             e.message = `Markdown mdstr must be md string!`
             throw e
         }
-    }
-
-    componentDidMount() {
-        this.upDataInnerHTML();
-    }
-
-    componentWillUpdate() {
-        this.upDataInnerHTML();
-
-    }
-
-    upDataInnerHTML = () => {
-        const { mdstr } = this.props;
         prismjs.highlightAll();
-        this.refs.md.innerHTML = marked(mdstr);
     }
 
     render() {
+        const { mdstr } = this.props;
+
         return (
-            <div ref='md' />
+            <ReactMarkdown source={mdstr} className="ost-md" />
         );
     }
 }

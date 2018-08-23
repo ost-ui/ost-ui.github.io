@@ -1,7 +1,21 @@
 
   .ost-documentation {
+    @lWidth: 190px;
+    @rWidth: calc(~'100% - 30px -'@lWidth);
     width: 100%;
     height: inherit;
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
+    &-left-main {
+      width: @lWidth;
+      max-width: @lWidth;
+      min-width: @lWidth;
+    }
+    &-right-main {
+      width: @rWidth;
+      min-width: @rWidth;
+      max-width: @rWidth;
+      display: flex;
+      justify-content: space-between;
+    }
   }
