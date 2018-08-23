@@ -23,7 +23,8 @@
                         height: '44px',
                         position: 'fixed',
                         bottom: '10px',
-                        zIndex: '10000'
+                        zIndex: '10000',
+                        fontSize: '14px'
                     }}
                     onClick={()=>this.setState({isLoading: !this.state.isLoading})} > 
                     {this.state.isLoading ? '关闭 Loading' : '显示 Loading'}

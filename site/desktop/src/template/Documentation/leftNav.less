@@ -4,10 +4,12 @@
   min-width: @lWidth;
   width: @lWidth;
   min-height: 100%;
-  padding-top: 40px;
-  padding-left: 10px;
   background: rgb(247, 251, 255);
   overflow-y: auto;
+  ul {
+    padding-left: 10px;
+    padding-top: 40px;
+  }
   li {
     height: 44px;
     display: flex;
@@ -15,6 +17,7 @@
     font-size: 14px;
     color: rgb(95, 95, 95);
     padding-left: 10px;
+    cursor: pointer;
   }
   &-active {
     color: rgb(63, 122, 231) !important;
