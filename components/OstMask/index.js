@@ -40,6 +40,10 @@ export default class OstMask extends Component {
     }
   }
 
+  componentWillUnmount() {
+    this.removeContainer();
+  }
+
   removeContainer = () => {
     this.container && this.container.parentNode.removeChild(this.container);
     this.componentActivated = false;

@@ -9,7 +9,6 @@ export default class Home extends React.Component {
 
     return (
       <div className="ost-home-list">
-        <header> ost-ui 移动组件库 </header>
         <ul>
           {
             Object.keys(component).map((ele, i) => 

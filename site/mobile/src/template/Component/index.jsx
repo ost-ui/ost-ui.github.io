@@ -57,7 +57,7 @@ export default class Component extends React.Component {
 
   componentWillUnmount() {
     const dom = document.getElementById('ost-phone-demo');
-    dom.parentNode.removeChild(dom);
+    ReactDOM.unmountComponentAtNode(dom);
   }
 
   render() {
@@ -65,12 +65,6 @@ export default class Component extends React.Component {
 
     return (
       <div className="ost-component">
-        <header className="ost-component-header">
-          <button onClick={() => window.history.back()} >
-            <i/>
-          </button>
-          <span> ost-ui 移动组件库 </span>
-        </header>
         <div className="ost-component-content" id='ost-phone-demo' />
       </div>
     );
