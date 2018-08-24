@@ -31,6 +31,12 @@
     "url": "https://github.com/guibwl/spinacia-cli"
   },
   "author": "OST",
+  "contributors": [
+    {
+      "name": "guibw",
+      "email": "228474838@qq.com"
+    }
+  ],
   "license": "MIT",
   "devDependencies": {
     "autoprefixer": "^8.6.5",
@@ -74,7 +80,7 @@
   },
   "dependencies": {
     "classnames": "^2.2.5",
-    "prismjs": "^1.15.0",
-    "react-markdown": "^3.4.1"
+    "highlight.js": "^9.12.0",
+    "marked": "^0.5.0"
   }
 }

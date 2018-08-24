@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
-import prismjs from 'prismjs';
-import ReactMarkdown from 'react-markdown';
-import './prism.css'
-import './md.less'
+import hljs from 'highlight.js';
+import 'highlight.js/styles/atelier-sulphurpool-light.css';
+import myMarked from 'marked';
+import './md.less';
+
 
 class Markdown extends Component {
     constructor(props) {
@@ -14,14 +15,31 @@ class Markdown extends Component {
             e.message = `Markdown mdstr must be md string!`
             throw e
         }
-        prismjs.highlightAll();
+    }
+
+    getRawMarkup() {
+      myMarked.setOptions({
+        renderer: new myMarked.Renderer(),
+        highlight: function(code) {
+          return require('highlight.js').highlightAuto(code).value;
+        },
+        pedantic: false,
+        gfm: true,
+        tables: true,
+        breaks: false,
+        sanitize: false,
+        smartLists: true,
+        smartypants: false,
+        xhtml: false
+      });
+
+
+      return { __html: myMarked(this.props.mdstr) };
     }
 
     render() {
-        const { mdstr } = this.props;
-
         return (
-            <ReactMarkdown source={mdstr} className="ost-md" />
+            <div className="ost-md" dangerouslySetInnerHTML={this.getRawMarkup()} />
         );
     }
 }

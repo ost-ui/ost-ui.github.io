@@ -24,7 +24,7 @@
 
 2. 对于 `<Icon type={require('../foo.svg')} />` 此类使用本地 svg 文件的场景，可以保留原 svg-sprite-loader 相关配置不变，然后使用自定义的 `CustomIcon` 组件替换 antd-mobile `Icon`，示例如下：
 
-```js
+```jsx
 - import { Icon } from 'antd-mobile';
 - <Icon type={require('./foo.svg')} />
 
@@ -46,7 +46,7 @@
 
 升级示例：
 
-  ```js
+  ```jsxx
   <DatePicker
   -  minDate={moment([2015, 8, 15, 10, 30, 0])}
   +  minDate={new Date(2015, 8, 15, 10, 30, 0)}
@@ -61,7 +61,7 @@
 
 旧版：
 
-```js
+```jsx
 <Tabs defaultActiveKey="2" onChange={callback} onTabClick={handleTabClick}>
   <TabPane tab={<Badge text={'3'}>First Tab</Badge>} key="1">
     <div>Content of First Tab</div>
@@ -140,25 +140,26 @@ const tabs = [
 
 升级示例:
 
-  ```js
-  - import { ListView, RefreshControl } from 'antd-mobile';
-  + import { ListView, PullToRefresh } from 'antd-mobile';
+  ```jsx
+   import { ListView, RefreshControl } from 'antd-mobile';
+   import { ListView, PullToRefresh } from 'antd-mobile';
+   
   <ListView
      dataSource={this.state.dataSource}
-  -  refreshControl={
-  -    <RefreshControl
-  -      refreshing={this.state.refreshing}
-  -      onRefresh={this.onRefresh}
-  -      icon={this.renderCustomIcon()}
-  -    />
-  -  }
-  +  pullToRefresh={
-  +    <PullToRefresh
-  +      refreshing={this.state.refreshing}
-  +      onRefresh={this.onRefresh}
-  +      indicator={{ deactivate: '下拉' }}
-  +    />
-  +  }
+    refreshControl={
+      <RefreshControl
+        refreshing={this.state.refreshing}
+        onRefresh={this.onRefresh}
+        icon={this.renderCustomIcon()}
+      />
+    }
+    pullToRefresh={
+      <PullToRefresh
+        refreshing={this.state.refreshing}
+        onRefresh={this.onRefresh}
+        indicator={{ deactivate: '下拉' }}
+      />
+    }
   />
   ```
 

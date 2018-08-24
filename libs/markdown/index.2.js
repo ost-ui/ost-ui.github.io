@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import prismjs from 'prismjs';
+import 'prismjs/themes/prism.css';
 import ReactMarkdown from 'react-markdown';
-import './prism.css'
 import './md.less'
 
 class Markdown extends Component {

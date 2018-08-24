@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import prismjs from 'prismjs';
+import 'prismjs/themes/prism.css';
 import marked from 'marked';
-import './prism.css'
 
 class Markdown extends Component {
     constructor(props) {
