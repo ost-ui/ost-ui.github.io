@@ -21,7 +21,7 @@ class Markdown extends Component {
       myMarked.setOptions({
         renderer: new myMarked.Renderer(),
         highlight: function(code) {
-          return require('highlight.js').highlightAuto(code).value;
+          return hljs.highlightAuto(code).value;
         },
         pedantic: false,
         gfm: true,
@@ -34,7 +34,7 @@ class Markdown extends Component {
       });
 
 
-      return { __html: myMarked(this.props.mdstr) };
+      return { __html: myMarked(this.props.mdstr || '') };
     }
 
     render() {
