@@ -1,7 +1,7 @@
 ## OstLoading 示例
 
-
-```js
+  
+```jsx
 :::$demo
 
     constructor(props) {
@@ -24,7 +24,8 @@
                         position: 'fixed',
                         bottom: '10px',
                         zIndex: '10000',
-                        fontSize: '14px'
+                        fontSize: '14px',
+                        background: '#fff'
                     }}
                     onClick={()=>this.setState({isLoading: !this.state.isLoading})} > 
                     {this.state.isLoading ? '关闭 Loading' : '显示 Loading'}

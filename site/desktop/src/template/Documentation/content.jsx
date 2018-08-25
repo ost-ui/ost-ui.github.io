@@ -40,7 +40,7 @@ export default class Content extends React.Component {
     return (
       <div className="ost-content">
         <div className="ost-content-inside">
-          <Markdown mdstr={this.state.mdstr && this.state.mdstr.replace(/:::\s?\$demo|:::\$/g, '')} />
+          <Markdown mdstr={this.state.mdstr && this.state.mdstr.replace(/:::\s?\$demo\s*|:::\$\s*/g, '')} />
         </div>
       </div>
     );

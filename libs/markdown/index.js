@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import hljs from 'highlight.js';
-import 'highlight.js/styles/atelier-sulphurpool-light.css';
+import 'highlight.js/styles/atom-one-light.css';
 import myMarked from 'marked';
 import './md.less';
 
@@ -34,7 +34,7 @@ class Markdown extends Component {
       });
 
 
-      return { __html: myMarked(this.props.mdstr || '') };
+      return { __html: myMarked(this.props.mdstr || '')};
     }
 
     render() {

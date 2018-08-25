@@ -25,15 +25,17 @@
     }
 
     pre {
-      border: solid 1px #eaeefb;
-      background: #fbfcff;
-      // background-color: transparent;
+      // border: solid 1px #eaeefb;
+      background: #faf9f7;
       border-radius: 4px;
       transition: .2s;
-      padding: 18px 24px;
+      padding: 15px;
       line-height: 1.8;
-      font-size: 12px;
+      font-size: 14px;
       overflow: auto;
+      code {
+        color: #5e6d82;
+      }
     }
 
     p {
@@ -42,7 +44,7 @@
       font-size: 14px;
       code {
         color: #5e6d82;
-        background-color: #f5f7ff;
+        background: #f7f6f4;
         margin: 5px 4px;
         transform: translateY(-2px);
         display: inline-block;
@@ -63,10 +65,11 @@
     }
 
     code {
-      font-family: Menlo, Monaco, Consolas, Courier, monospace;
+      font-family: Arial, Helvetica, sans-serif, Menlo, Monaco, Consolas, Courier, monospace;
     }
 
     table {
+      @th-border: 1px solid #f5f2ec;
       border-collapse: collapse;
       width: 100%;
       background-color: #fff;
@@ -79,13 +82,13 @@
       }
       th {
         text-align: left;
-        border-top: 1px solid #eaeefb;
-        background-color: #EFF2F7;
+        border-top: @th-border;
+        background-color: #f9f9f9;
         white-space: nowrap;
       }
       td,
       th {
-        border-bottom: 1px solid #eaeefb;
+        border-bottom: @th-border;
         padding: 10px;
         max-width: 250px;
       }

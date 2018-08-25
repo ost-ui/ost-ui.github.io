@@ -1,15 +1,17 @@
+@import '../__style/base.less';
+
 .ost-loading{
-	@bg-WH: 72px;
+	@bg-WH: 72 * @BU;
 	width: @bg-WH;
 	height: @bg-WH;
-	border-radius: 6px;
+	border-radius: 6 * @BU;
 	opacity: 0.75;
-	background: #000 0px 0px no-repeat;
+	background: #000 0 0 no-repeat;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	&-svg{
-	@svg-WH: 36px;
+	@svg-WH: 36 * @BU;
 	width: @svg-WH;
 	height: @svg-WH;
 	animation: rotateLoading 1s infinite steps(12);
