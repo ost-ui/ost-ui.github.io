@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import './style.less';
 import OstMask from '../OstMask/index';
 
 class OstLoading extends Component {

@@ -2,7 +2,6 @@ import React,{Component} from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import './style.less';
 import preventBgScroll from './preventBgScroll'
 
 export default class OstMask extends Component {
