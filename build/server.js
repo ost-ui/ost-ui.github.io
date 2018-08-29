@@ -4,6 +4,7 @@ const path = require('path');
 const webpack = require('webpack');
 const WebpackDevServer = require('webpack-dev-server');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const OpenBrowserPlugin = require('open-browser-webpack-plugin');
 const cwd = path.join(__dirname, '../');
 const arguments = process.argv.splice(2);
 const config = require(path.join(cwd, arguments[0]));
@@ -27,7 +28,8 @@ new WebpackDevServer(webpack({
     new HtmlWebpackPlugin({
       template: './index.html',
       favicon: '../favicon.ico'
-    })
+    }),
+    new OpenBrowserPlugin({ url: `http://localhost:${PORT}` })
   ],
   resolve: {
     extensions: ['.js', '.jsx']
@@ -72,7 +74,7 @@ new WebpackDevServer(webpack({
   historyApiFallback: true,
   stats: { colors: true }
 }).listen(PORT, '0.0.0.0', error => {
-  console.log(`Starting server on http://localhost:${PORT}`);
+  // console.log(`Starting server on http://localhost:${PORT}`);
   if (error) {
     throw error;
   }

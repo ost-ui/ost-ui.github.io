@@ -11,7 +11,7 @@ ReactDOM.render(
 )
 
 if (module.hot) {
-  module.hot.accept('./src/app.jsx', () => {
+  module.hot.accept('./src/app', () => {
     window.location.reload();
   });
 }
