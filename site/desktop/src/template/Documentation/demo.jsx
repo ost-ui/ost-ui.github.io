@@ -2,7 +2,11 @@ import React from 'react';
 import './demo.less';
 
 const baseAddress = () => {//根据环境 及 location对象自动判断 mobile 端地址
-  return `${window.location.protocol}//${window.location.hostname}:${(Number(window.location.port) + 1) +  window.location.pathname + window.location.search}#/`
+  if (process.env.NODE_ENV === 'development') {
+    return `${window.location.protocol}//${window.location.hostname}:${(Number(window.location.port) + 1) +  window.location.pathname + window.location.search}#/`
+  } else {
+    return `${window.location.protocol}//${window.location.hostname}${window.location.port ? ':' : ''}${window.location.port + window.location.pathname.replace('index.html', '')}mobile/index.html${window.location.search}#/`
+  }
 };
 
 export default class Demo extends React.Component {
