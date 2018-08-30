@@ -61,7 +61,7 @@ import { OstMask } from 'ost-ui/dist/npm/OstMask';
 <br/>
 
 ```less
-@import "./npm/__style/index.less"
+@import "./npm/__style/index.less";
 ```
 
 <br/>
@@ -71,7 +71,7 @@ import { OstMask } from 'ost-ui/dist/npm/OstMask';
 <br/>
 
 ```less
-@import "~ost-ui/dist/npm/__style/index.less"
+@import "~ost-ui/dist/npm/__style/index.less";
 ```
 <br/>
 

@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import OstMask from '../OstMask/index';
+import svgLoading from './images/loading.svg';
 
 class OstLoading extends Component {
   render() {
@@ -8,7 +9,7 @@ class OstLoading extends Component {
 
     return <OstMask show={isLoading} >
       <div className="ost-loading">
-        <span className="ost-loading-svg" ></span>
+        <img src={svgLoading} className="ost-loading-svg"/>
       </div>
     </OstMask>
   }
