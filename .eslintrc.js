@@ -1,26 +1,28 @@
-{
+module.exports = {
+  "root": true,
   "parser": "babel-eslint",
   "parserOptions": {
-  "ecmaVersion": 6,
-  "ecmaFeatures": {
-      "jsx": true,
-      "experimentalObjectRestSpread": true
-    }
+    "ecmaVersion": 6,
+    "ecmaFeatures": {
+        "jsx": true,
+        "experimentalObjectRestSpread": true
+      }
   },
-  "extends": [ "eslint-config-airbnb", "eslint:recommended", "plugin:flowtype/recommended" ],
+  "extends": [ 
+    "airbnb-base",
+    "plugin:react/recommended",
+    "eslint:recommended"
+  ],
   "plugins": [ "react", "jsx-a11y", "babel" ],
   "env": {
     "browser": true,
+    "node": true,
     "commonjs": true,
     "es6": true,
     "jest": true
   },
-  "settings": {
-    "flowtype": {
-      "onlyFilesWithFlowAnnotation": true
-    }
-  },
   "rules": {
+    "no-debugger": process.env.NODE_ENV === 'production' ? 'error' : 'off',
     "jsx-a11y/no-static-element-interactions": 0,
     "react/self-closing-comp": 0,
     "react/jsx-no-bind": 0,
@@ -47,5 +49,13 @@
     "react/no-unused-prop-types": 1,
     "react/forbid-prop-types": [1, { "forbid": ["array"] }],
     "react/no-array-index-key": 0
+  },
+  "settings": {
+    "react": {
+      "createClass": "createReactClass",
+      "pragma": "React",
+      "version": "16.0"
+    },
+    "propWrapperFunctions": ["forbidExtraProps"]
   }
 }

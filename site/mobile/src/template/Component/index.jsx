@@ -26,6 +26,9 @@ export default class Component extends React.Component {
     if (window.location.hash.substring(2)!==key) return;
     const demoRex = /:::\s?\$demo\s?([^]+?):::\$/g;
     const demoFlagRex = /:::\s?\$demo|:::\$/g;
+
+    if (!data.match(demoRex)) return;
+
     let _htmlStr = '';
 
     data.match(demoRex).forEach(ele => {

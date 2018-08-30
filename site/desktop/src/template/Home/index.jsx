@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 
 export default class Home extends React.Component {
 
@@ -7,7 +7,8 @@ export default class Home extends React.Component {
     return (
       <div className="Home">
         <h2>desktop</h2>
-        <Link to={'/Documentation-$about-ost'} > start </Link>
+        <Redirect to={'/Documentation-$about-ost'} />
+        {/* <Link to={'/Documentation-$about-ost'} > start </Link> */}
       </div>
     );
   }

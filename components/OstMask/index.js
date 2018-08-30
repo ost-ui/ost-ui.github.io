@@ -61,37 +61,32 @@ export default class OstMask extends Component {
   }
 
   getComponent = () => {
-    const {show, onClick, type} = this.props;
+    const {show, onClick, appear} = this.props;
   
     return (
-      <div>
+      <div className='ost-mask'>
         {
-          !type &&
               <div
                 className={classnames(
-                  'ost-mask-default-popup',
+                  'ost-mask-children',
                   {
-                    'ost-mask-show-fade-out': !show,
-                    'ost-mask-show-fade-in': show
+                    'ost-mask-am-fade-out': !show,
+                    'ost-mask-am-fade-in': show
                   }
                 )}
                 ref='defaultPopup' >
                 { this.props.children }
               </div>
         }
-        {
-          <div
-            className={classnames(
-              "ost-mask",
-              {
-                'ost-mask-show-fade-out': !show,
-                'ost-mask-show-fade-in': show
-              }
-            )}
-            onClick={(e) => onClick && onClick(e)} >
-
-          </div>
-        }
+        <div
+          className={classnames(
+            "ost-mask-bg",
+            {
+              'ost-mask-am-fade-out': !show,
+              'ost-mask-am-fade-in': show
+            }
+          )}
+          onClick={(e) => onClick && onClick(e)} />
       </div>
     );
   }
@@ -111,6 +106,6 @@ export default class OstMask extends Component {
 OstMask.propTypes = {
   show: PropTypes.bool.isRequired,
   onClick: PropTypes.func,
-  type: PropTypes.string,
+  appear: PropTypes.string,
   top: PropTypes.string
 }

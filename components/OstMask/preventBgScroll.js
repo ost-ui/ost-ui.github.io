@@ -1,3 +1,5 @@
+import './scrollingelement';
+
 const preventBgScroll = () => {
 
   if(!window.OSTMASK_BODY_SCROLL_LOCKED_POSITION_FIXED){
