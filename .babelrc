@@ -53,7 +53,7 @@
             "modules": false,
             "loose": true,
             "useBuiltIns": true,
-            "debug": true
+            "debug": false
           }
         ],
         "stage-1", "react"
