@@ -16,7 +16,7 @@ module.exports = function(config) {
       noInfo: true
     },
     reporters: [
-      'mocha',
+      'spec',
       'coverage-istanbul',
     ],
     coverageIstanbulReporter: {

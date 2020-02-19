@@ -1,0 +1,35 @@
+.ost-numKeyboard {
+    width: 100%;
+    height: auto;
+    background: #d1d5db;
+    display: flex;
+    flex-wrap: wrap;
+    padding-bottom: 5 * @BU;
+
+    &-item {
+      width: auto;
+      height: auto;
+      background: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #333;
+      font-size: 28 * @BU;
+      border-radius: 10 * @BU;
+    }
+
+    &-item:active {
+      background: #eee;
+    }
+
+    &-del {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      img {
+        width: 30 * @BU;
+        height: 30 * @BU;
+        pointer-events: none;
+      }
+    }
+}

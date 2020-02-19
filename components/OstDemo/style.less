@@ -1,0 +1,60 @@
+.ost-demo {
+  .ost-demo-proto-click {
+    width: 100%;
+    background: #409eff;
+    border: 0;
+    color: #ffffff;
+    font-size: 22 * @BU;
+    border-radius: 5 * @BU;
+    padding: 2.5% 0;
+  }
+  .ost-demo-comp-click {
+    margin-top: 2%;
+    width: 100%;
+    background: #00c5a7;
+    border: 0;
+    color: #ffffff;
+    font-size: 22 * @BU;
+    border-radius: 5 * @BU;
+    padding: 2.5% 0;
+  }
+  .ost-demo-view {
+    height: 0;
+    padding: 2.5% 0;
+    animation: slideOut 1s forwards;
+    -webkit-animation: slideOut 1s forwards;
+    overflow: hidden;
+  }
+  .ost-demo-view.off {
+    animation: slideIn 1s forwards;
+    -webkit-animation: slideIn 1s forwards;
+  }
+  .ost-demo-book {
+    background: #eeeeee;
+    border-radius: 5 * @BU;
+    padding: 5%;
+    margin-bottom: 2.5%;
+    span {
+      background: #409eff;
+      color: #ffffff;
+    }
+  }
+
+  @keyframes slideOut {
+    0% {
+      height: 0;
+    }
+    100% {
+      height: 150 * @BU;
+    }
+  }
+
+  @keyframes slideIn {
+    0% {
+      height: 150 * @BU;
+    }
+    100% {
+      height: 0;
+    }
+  }
+}

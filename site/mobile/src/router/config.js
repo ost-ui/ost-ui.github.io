@@ -1,13 +1,13 @@
 import Home from '../template/Home';
-import Component from '../template/Component';
-import * as component from '../../../../components'
+import MyComponent from '../template/Component';
+import * as component from '../../../../components';
 
 const routes = [
   { path: '/', name: 'Home', component: Home }
 ];
 
 for (const key in component) {
-  const route = { path: `/${key}`, name: `component_${key}`, component: Component };
+  const route = { path: `/${key}`, name: `component_${key}`, component: MyComponent };
   routes.push(route);
 }
 

@@ -1,15 +1,15 @@
 {
   "name": "ost-ui",
-  "version": "0.0.2",
+  "version": "0.0.7",
   "description": "ost ui for react",
   "main": "dist/npm/index.js",
   "scripts": {
     "dev-desktop": "cd build && node server.js ./site/webpack.desktop.config.js",
     "dev-mobile": "cd build && node server.js ./site/webpack.mobile.config.js",
-    "start": "npm run dev-mobile | npm run dev-desktop",
+    "start": "node ./build/start.js",
     "build-desktop": "rm -rf dist/site && cd build && webpack --c-path:./site/webpack.desktop.config.js --progress --mode production",
     "build-mobile": "cd build && webpack --c-path:./site/webpack.mobile.config.js --progress --mode production",
-    "build": "npm run build-mobile | npm run build-desktop",
+    "build": " npm run build-desktop && npm run build-mobile",
     "test": "rm -rf tests/coverage && cross-env BABEL_ENV=test karma start karma.conf.js --single-run",
     "test:watch": "rm -rf tests/coverage && cross-env BABEL_ENV=test karma start karma.conf.js --auto-watch",
     "babel-cli": "rm -rf dist/npm && babel components/ --out-dir dist/npm  --copy-files"
@@ -36,6 +36,10 @@
     {
       "name": "guibw",
       "email": "228474838@qq.com"
+    },
+    {
+      "name": "leotw",
+      "email": "1123978215@qq.com"
     }
   ],
   "license": "MIT",
@@ -93,6 +97,7 @@
     "react-route": "^1.0.3",
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
+    "sinon": "^7.0.0",
     "style-loader": "^0.21.0",
     "url-loader": "^1.0.1",
     "webpack": "^4.16.0",

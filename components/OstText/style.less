@@ -1,0 +1,44 @@
+@import '../__style/themes/default.less';
+@import '../__style/mixins/utils.less';
+@import '../__style/base.less';
+
+@textFixedCls: ost-text;
+
+.@{textFixedCls} {
+  font-size: @font-size-base;
+  display: flex;
+
+  &-label {
+    padding-right: @BU * 10px;
+    .nowrap()
+  }
+  // 文本颜色 primary success warning
+  &-primary {
+    color: @brand-primary;
+  }
+  &-success {
+    color: @brand-success;
+  }
+  &-warning {
+    color: @brand-warning;
+  }
+  // 文本字体尺寸 xs sm md lg xl
+  &-xs {
+    font-size: @font-size-icontext;
+  }
+  &-sm {
+    font-size: @font-size-caption-sm;
+  }
+  &-md {
+    font-size: @font-size-base;
+  }
+  &-lg {
+    font-size: @font-size-caption;
+  }
+  &-xl {
+    font-size: @font-size-suphead;
+  }
+  &-single-line {
+    .ellipsis-single-line()
+  }
+}

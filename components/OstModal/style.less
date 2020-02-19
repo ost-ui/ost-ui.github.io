@@ -1,0 +1,71 @@
+.ost-modal {
+  &-basic {
+    width: 260 * @BU;
+    min-width: 260 * @BU;
+    height: auto;
+    background: #fff;
+    box-shadow: 0 0 20 * @BU 0 rgba(0, 0, 0, 0.10);
+    border-radius: 8 * @BU;
+    display: flex;
+    flex-direction: column;
+
+    &-box {
+        padding: 40 * @BU 25 * @BU 25 * @BU 25 * @BU;
+    }
+    
+    &-primary {
+      font-family: PingFangSC-Medium;
+      font-size: 16 * @BU;
+      color: #333333;
+      text-align: center;
+      padding-bottom: 24 * @BU;
+    }
+
+    &-secondary {
+      font-family: PingFangSC-Regular;
+      font-size: 14 * @BU;
+      color: #333333;
+      letter-spacing: 0;
+      text-align: justify;
+      line-height: 21 * @BU;
+      padding-bottom: 24 * @BU;
+    }
+
+    &-priBtn {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+
+      button {
+        min-width: 132 * @BU;
+        padding: 10 * @BU 15 * @BU;
+        font-family: PingFangSC-Medium;
+        font-size: 16 * @BU;
+        color: #FFFFFF;
+        letter-spacing: 0;
+        text-align: center;
+        background: #FF6D00;
+        border-radius: 50 * @BU;
+      }
+    }
+
+    &-secBtn {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin-top: 12 * @BU;
+
+      button {
+        min-width: 132 * @BU;
+        padding: 10 * @BU 15 * @BU;
+        font-family: PingFangSC-Medium;
+        font-size: 16 * @BU;
+        color: #FF6D00;
+        letter-spacing: 0;
+        text-align: center;
+        border: 1 * @BU solid #FF6D00;
+        border-radius: 50 * @BU;
+      }
+    }
+  }
+}

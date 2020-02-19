@@ -18,10 +18,10 @@ export default class Content extends React.Component {
 
   importMd = () => {
     
-    import('../pages').then(pages => {
+    import('../../../../pages').then(pages => {
 
       pages.default.forEach(_key => {
-        _key.doc.then(data =>{
+        _key.doc && _key.doc.then(data =>{
           mdData[`mdstr${_key.hash}`] = data;
           this.checkHashChange();
         })
@@ -46,4 +46,3 @@ export default class Content extends React.Component {
     );
   }
 }
-//require('../../../../../doc/about-ostui.md') ||
