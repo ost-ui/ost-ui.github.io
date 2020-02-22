@@ -1,8 +1,11 @@
-import React, {Component} from 'react';
+import React, {Component, useState} from 'react';
 import PropTypes from 'prop-types';
+import clsPrefix from 'cls-prefix';
 import classnames from 'classnames';
 import delIcon from './delIcon.svg';
 
+
+const sixBitClsPre = new clsPrefix('ost-input-sixBitCode').splice;
 
 class SixBitCode  extends Component {
   constructor(props) {
@@ -122,7 +125,7 @@ class SixBitCode  extends Component {
     return (
         <div
           style={style}
-          className='ost-input-sixBitCode'>
+          className={sixBitClsPre()}>
           {
             SixBitCodeArr.map((ele, i) => {
 
@@ -134,9 +137,9 @@ class SixBitCode  extends Component {
                   }}
                   ref={e => this.refArr.push(e)}
                   style={itemStyle}
-                  className={classnames(
-                    'ost-input-sixBitCode-fakeInput',
-                    {'ost-input-sixBitCode-fakeInput-onFocus': (i === this.getEmptyindex()) && isFocus}
+                  className={sixBitClsPre(
+                      'fakeInput',
+                      {'fakeInput-onFocus': (i === this.getEmptyindex()) && isFocus}
                   )}
                   key={i}>
                   {ele.value}
@@ -148,6 +151,7 @@ class SixBitCode  extends Component {
   }
 }
 
+const ostInputClsPre = new clsPrefix('ost-input').splice;
 
 class OstInput extends Component {
 
@@ -173,19 +177,22 @@ class OstInput extends Component {
       type,
       maxLength,
       onBlur,
-      onFocus
+      onFocus,
+      countdown,
+      countstart,
+      countend,
+      countDisabled
     } = this.props;
 
     return (
-      <div className='ost-input'>
+      <div className={ostInputClsPre()}>
         <input
           className={
-            classnames({
-              "ost-input-disabled": disabled
-             })
+            ostInputClsPre({disabled: disabled})
           }
           type={type || "text"}
           disabled={disabled}
+          maxLength={maxLength}
           defaultValue={defaultValue}
           value={(maxLength && value) ? value.slice(0, maxLength) : value}
           onBlur={()=>{
@@ -228,11 +235,19 @@ class OstInput extends Component {
         />
         {
           value && onDel && this.state.closeBtn &&
-          <div className='ost-input-delBtn'>
+          <div className={ostInputClsPre('delBtn')}>
             <img
               onClick={onDel}
               src={delIcon} />
           </div>
+        }
+        {
+          countdown &&
+          <Countdown
+            countDisabled={countDisabled}
+            countstart={countstart}
+            countend={countend}
+            countdown={countdown}/>
         }
       </div>
     )
@@ -243,5 +258,76 @@ class OstInput extends Component {
 export default OstInput;
 
 OstInput.propTypes = {
-  title: PropTypes.string
+  title: PropTypes.string,
+  countdown: PropTypes.number
+}
+
+const countdownClsPre = new clsPrefix('ost-input-countdown').splice;
+
+function Countdown({countdown, countstart, countend, countDisabled}) {
+  const [firstTimeExec, updateExecTimes] = useState(true);
+  
+  const [countState, countSetState] = useState(countdown);
+
+  const [counting, countingSetState] = useState(false);
+
+  let _setInterval;
+  let n = countdown;
+  const countSetStateHandler = () => {
+   
+    if (n <= 0) {
+      n = countdown;
+      countSetState(countdown);
+      clearInterval(_setInterval);
+      //倒计时结束的回调
+      countend && countend();
+      updateExecTimes(false);
+      countingSetState(false);
+    } else {
+      countSetState(--n);
+    }
+  }
+
+  const onClickCountBtn = () => {
+    
+    if (countDisabled || (countState !== countdown)) {
+      // Disabled 状态或正则倒计时中
+      return;
+    }
+
+
+    // countstart 的回调
+    countstart && countstart();
+
+    countingSetState(true);
+    _setInterval = setInterval(countSetStateHandler, 1000);
+  }
+
+  return (
+    <div
+      onClick={onClickCountBtn}
+      className={countdownClsPre()}>
+      <span
+        className={countdownClsPre('item', {
+          'disabled': countDisabled,
+          'hide': !firstTimeExec || counting
+        })}>
+        获取验证码
+      </span>
+      <span
+        className={countdownClsPre('item', {
+          'disabled': true,
+          'hide': !counting
+        })}>
+        {countState}s后重新发送
+      </span>
+      <span
+        className={countdownClsPre('item', {
+          'disabled': countDisabled,
+          'hide': firstTimeExec || counting
+        })}>
+        重发
+      </span>
+    </div>
+  )
 }

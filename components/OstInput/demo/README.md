@@ -1,19 +1,23 @@
 ## OstInput 示例
 
-  
+
 ```jsx
+import {OstList, OstInput} from 'ost-ui';
+
+
 :::$demo
 class Demo extends Component {
 
     constructor(props) {
         super(props);
         this.state = { 
-            value: ''
+            value: '',
+            phoneNo: '',
         };
     }
 
     render() {
-       const { value } = this.state;
+       const { value, phoneNo } = this.state;
 
        return([
         
@@ -26,7 +30,36 @@ class Demo extends Component {
           </OstList>
         </OstList.card>,
 
-        <OstList.card title="输入框" key='1'>
+        <OstList.card title="登陆" key='1'>
+          <OstList title='手机号'>
+            <OstInput
+                maxLength={11}
+                value={phoneNo}
+                onChange={e => {
+                    const _val = e.target.value;
+                    this.setState({phoneNo: _val})
+                }}
+                type='number'
+                placeholder='请输入手机号' />
+          </OstList>
+          <OstList title='验证码'>
+            <OstInput
+                type='number'
+                countdown={5}
+                countstart={()=> console.log('倒计时开始')}
+                countend={()=> console.log('倒计时结束')}
+                onChange={e => console.log(e.target.value)}
+                placeholder='请输入验证码' />
+          </OstList>
+          <OstList title='验证码'>
+            <OstInput
+                countDisabled
+                countdown={60}
+                placeholder='验证码按钮已禁' />
+          </OstList>
+        </OstList.card>,
+
+        <OstList.card title="输入框" key='2'>
           <OstList title='请输入测试内容'>
             <OstInput
                 placeholder='请输入' 
@@ -40,9 +73,12 @@ class Demo extends Component {
 }
 :::$
 ```
-
   
+
 ```jsx
+import {OstList, OstInput, OstNumKeyboard} from 'ost-ui';
+
+
 :::$demo
 class Demo extends Component {
 

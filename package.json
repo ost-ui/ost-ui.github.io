@@ -1,6 +1,6 @@
 {
   "name": "ost-ui",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "ost ui for react",
   "main": "dist/npm/index.js",
   "scripts": {
@@ -106,6 +106,7 @@
   },
   "dependencies": {
     "classnames": "^2.2.5",
+    "cls-prefix": "^1.0.3",
     "highlight.js": "^9.12.0",
     "marked": "^0.5.0"
   }
