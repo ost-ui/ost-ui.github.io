@@ -82,6 +82,16 @@ export default class OstNumKeyboard extends Component {
 
     keyBoardRef && keyBoardRef(this.box);
     this.resetValue();
+
+    if (show) {
+      document.body.style.paddingBottom = `${this.box.clientHeight}px`;
+      const scrollTop = document.scrollingElement.scrollTop;
+      document.scrollingElement.scrollTop = scrollTop + this.box.clientHeight;
+    } else {
+      document.body.style.paddingBottom = null;
+      const scrollTop = document.scrollingElement.scrollTop;
+      document.scrollingElement.scrollTop = scrollTop - this.box.clientHeight;
+    }
   }
 
   updateValue = (key) => {

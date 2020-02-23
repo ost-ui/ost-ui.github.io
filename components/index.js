@@ -2,7 +2,7 @@
 *  输出模块命名务必与组件文件夹名称保持一致，否则将无法获取到部分资源；
 */
 
-export const MENU_ITEM_Layout = {title: '布局类', before: 'OstWhiteSpace'};
+export const MENU_ITEM_Layout = {title: '布局', before: 'OstWhiteSpace'};
 export { default as OstWhiteSpace } from './OstWhiteSpace';
 export { default as OstWhiteBlank } from './OstWhiteBlank';
 
@@ -16,7 +16,7 @@ export { default as OstText } from './OstText';
 export { default as OstList } from './OstList';
 
 
-export const MENU_ITEM_DataEntry = {title: '数据输入', before: 'OstInput'};
+export const MENU_ITEM_DataEntry = {title: '表单', before: 'OstInput'};
 export { default as OstInput } from './OstInput';
 export { default as OstCheckbox } from './OstCheckbox';
 export { default as OstButton } from './OstButton';
@@ -27,6 +27,7 @@ export { default as OstNumKeyboard } from './OstNumKeyboard';
 export const MENU_ITEM_Feedback = {title: '反馈类', before: 'OstLoading'};
 export { default as OstLoading } from './OstLoading';
 export { default as OstModal } from './OstModal';
+export { default as OstToast } from './OstToast';
 
 
 export const MENU_ITEM_Other = {title: '样例', before: 'OstMask'};

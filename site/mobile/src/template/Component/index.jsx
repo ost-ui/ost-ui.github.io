@@ -103,7 +103,7 @@ export default class MyComponent extends React.Component {
       }
     
     ReactDOM.render(<Demo {...context.props} />, document.getElementById('ost-phone-demo'))`, {
-        presets: ['es2015', 'react']
+        presets: ['es2015', 'react', 'stage-1']
     }).code;
 
     args.push(code);

@@ -1,7 +1,6 @@
 import React, {Component, useState} from 'react';
 import PropTypes from 'prop-types';
 import clsPrefix from 'cls-prefix';
-import classnames from 'classnames';
 import delIcon from './delIcon.svg';
 
 
