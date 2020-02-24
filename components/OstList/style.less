@@ -72,11 +72,12 @@
 
   &-item {
     height: 100%;
-    width: 65%;
+    width: auto;
     display: flex;
     align-items: center;
     justify-content: flex-end;
     color: #333;
+    position: relative;
 
     &-text {
       width: 100%;
@@ -87,8 +88,6 @@
       -webkit-line-clamp: 2;
       /*! autoprefixer: ignore next */
       -webkit-box-orient: vertical;
-      position: relative;
-      right: -12 * @BU;
 
       &-placeholder {
 
@@ -104,7 +103,8 @@
     &-icon {
       height: 12 * @BU;
       width: 12 * @BU;
-      position: relative;
+      position: absolute;
+      top: calc(~'50% - 6*@{BU}');
       right: -25 * @BU;
 
       img {
