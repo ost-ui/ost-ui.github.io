@@ -1,0 +1,67 @@
+@import './popup.less';
+
+.rmc-picker,.rmc-multi-picker {
+  height: 238 * @BU; /*34*7*/
+}
+
+.rmc-multi-picker {
+  display: flex;
+  align-items: center;
+}
+
+.rmc-picker-item {
+  font-size: 16 * @BU;
+  height: 34 * @BU;
+  line-height: 34 * @BU;
+  padding: 0 10 * @BU;
+  white-space: nowrap;
+  position: relative;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #9b9b9b;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.rmc-picker {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  flex: 1;
+  text-align: center;
+}
+
+.rmc-picker-mask {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  margin: 0 auto;
+  width: 100%;
+  z-index: 3;
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.6)), linear-gradient(to top, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.6));
+  background-position: top, bottom;
+  background-size: 100% 204 * @BU;
+  background-repeat: no-repeat;
+}
+
+.rmc-picker-content {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+.rmc-picker-indicator {
+  box-sizing: border-box;
+  width: 100%;
+  height: 34 * @BU;
+  position: absolute;
+  left: 0;
+  top: 102 * @BU;
+  z-index: 3;
+  border-top: 1 * @BU solid #ddd;
+  border-bottom: 1 * @BU solid #ddd;
+}

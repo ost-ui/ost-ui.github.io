@@ -22,6 +22,7 @@ export { default as OstCheckbox } from './OstCheckbox';
 export { default as OstButton } from './OstButton';
 export { default as OstSwitch } from './OstSwitch';
 export { default as OstNumKeyboard } from './OstNumKeyboard';
+export { default as OstPicker } from './OstPicker';
 
 
 export const MENU_ITEM_Feedback = {title: '反馈类', before: 'OstLoading'};
