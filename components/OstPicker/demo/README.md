@@ -101,8 +101,8 @@ import {OstPicker} from 'ost-ui';
         value: null
     };
 
-    onOk = (value) => {
-        console.log('onOk', value);
+    onOk = (value, label) => {
+        console.log('onOk', value, label);
         this.setState({value});
     }
 

@@ -13,6 +13,8 @@ class OstPickerCore extends Component {
 
   filteredValue = [];
 
+  filteredLabel = [];
+
   multiPickerDataCache = [];
 
   onChange = (value) => {
@@ -37,6 +39,8 @@ class OstPickerCore extends Component {
 
       this.filteredValue.push(item.value);
 
+      this.filteredLabel.push(item.label);
+
       const _data = this.getChildrenData(item);
 
       if (!_data) return;
@@ -46,6 +50,7 @@ class OstPickerCore extends Component {
 
     if (value && value instanceof Array) {
       this.filteredValue = [];
+      this.filteredLabel = [];
 
       let _data = data;
 
@@ -62,6 +67,8 @@ class OstPickerCore extends Component {
         }
 
         this.filteredValue.push(item.value);
+
+        this.filteredLabel.push(item.label);
 
         _data = this.getChildrenData(item);
 
@@ -117,7 +124,10 @@ class OstPickerCore extends Component {
 
     this.setState(options);
 
-    communicate({selectedValue: this.filteredValue});
+    communicate({
+      selectedValue: this.filteredValue,
+      selectedLabel: this.filteredLabel
+    });
   }
 
   componentWillMount() {
@@ -149,8 +159,9 @@ class OstPickerCore extends Component {
 
 export default class OstPicker extends Component {
 
-  communicate = ({selectedValue}) => {
+  communicate = ({selectedValue, selectedLabel}) => {
     this.selectedValue = selectedValue;
+    this.selectedLabel = selectedLabel;
   }
 
 
@@ -177,7 +188,7 @@ export default class OstPicker extends Component {
             content={popupContent}
             title={title}
             onDismiss={onCancel}
-            onOk={() => onOk(this.selectedValue)}
+            onOk={() => onOk(this.selectedValue, this.selectedLabel)}
             dismissText={cancelText}
             okText={okText}
           >
