@@ -18,8 +18,13 @@ class OstPickerCore extends Component {
   multiPickerDataCache = [];
 
   onChange = (value) => {
+    const {onChange} = this.props;
+
     this.makePickersUpdate(value);
-    this.props.onChange(value);
+
+    if (onChange && typeof onChange === 'function') {
+      onChange(value);
+    }
   }
 
   getChildrenData (item) {
@@ -164,6 +169,16 @@ export default class OstPicker extends Component {
     this.selectedLabel = selectedLabel;
   }
 
+  onOk = () => {
+    const {
+      onOk
+    } = this.props;
+
+    if (onOk && typeof onOk === 'function') {
+      onOk(this.selectedValue, this.selectedLabel)
+    }
+  }
+
 
   render() {
     const popupContent = (
@@ -175,7 +190,6 @@ export default class OstPicker extends Component {
     const {
         children,
         title,
-        onOk,
         onCancel,
         cancelText,
         okText
@@ -188,7 +202,7 @@ export default class OstPicker extends Component {
             content={popupContent}
             title={title}
             onDismiss={onCancel}
-            onOk={() => onOk(this.selectedValue, this.selectedLabel)}
+            onOk={this.onOk}
             dismissText={cancelText}
             okText={okText}
           >
