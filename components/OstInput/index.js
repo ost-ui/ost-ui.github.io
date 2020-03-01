@@ -294,9 +294,9 @@ function Countdown({countdown, countstart, countend, countDisabled}) {
       return;
     }
 
-
+    const resetCount = () => {n = 0};
     // countstart 的回调
-    countstart && countstart();
+    countstart && countstart(resetCount);
 
     countingSetState(true);
     _setInterval = setInterval(countSetStateHandler, 1000);

@@ -45,8 +45,12 @@ class Demo extends Component {
           <OstList title='验证码'>
             <OstInput
                 type='number'
-                countdown={5}
-                countstart={()=> console.log('倒计时开始')}
+                countdown={60}
+                countstart={(stop)=> {
+                    console.log('倒计时开始');
+                    console.log('倒计时将在5s中断');
+                    setTimeout(stop, 5000);
+                }}
                 countend={()=> console.log('倒计时结束')}
                 onChange={e => console.log(e.target.value)}
                 placeholder='请输入验证码' />
