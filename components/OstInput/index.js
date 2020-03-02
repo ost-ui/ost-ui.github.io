@@ -1,4 +1,4 @@
-import React, {Component, useState} from 'react';
+import React, {Component, useState, useEffect, useRef} from 'react';
 import PropTypes from 'prop-types';
 import clsPrefix from 'cls-prefix';
 import delIcon from './delIcon.svg';
@@ -270,14 +270,14 @@ function Countdown({countdown, countstart, countend, countDisabled}) {
 
   const [counting, countingSetState] = useState(false);
 
-  let _setInterval;
+  const _setInterval = useRef(null);
   let n = countdown;
   const countSetStateHandler = () => {
    
     if (n <= 0) {
       n = countdown;
       countSetState(countdown);
-      clearInterval(_setInterval);
+      clearInterval(_setInterval.current);
       //倒计时结束的回调
       countend && countend();
       updateExecTimes(false);
@@ -299,8 +299,12 @@ function Countdown({countdown, countstart, countend, countDisabled}) {
     countstart && countstart(resetCount);
 
     countingSetState(true);
-    _setInterval = setInterval(countSetStateHandler, 1000);
+    _setInterval.current = setInterval(countSetStateHandler, 1000);
   }
+
+  useEffect(() => () => {
+    clearInterval(_setInterval.current);
+  }, []);
 
   return (
     <div
