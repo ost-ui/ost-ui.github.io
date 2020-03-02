@@ -1,0 +1,37 @@
+.ost-swtich {
+  @height: 30  * @BU;
+  min-width: 50 * @BU;
+  height: @height;
+  border-radius: 50 * @BU;
+  padding: 1 * @BU;
+  position: relative;
+  &-checked {
+    background: #FF6D00;
+    transition: all .2s;
+  }
+  &-unchecked {
+    background: #BABFC9;
+    transition: all .2s;
+  }
+  &-dot {
+    width: @height - 1 * @BU;
+    height: @height - 1 * @BU;
+    border-radius: 50 * @BU;
+    display: block;
+    background: #FFFFFF;
+    box-shadow: 0 2 * @BU 2 * @BU 0 rgba(0,0,0,0.30);
+    position: absolute;
+      &-checked {
+        left: calc(~'100% -'@height);
+        transition: all .2s;
+      }
+      &-unchecked {
+        left: 0%;
+        transition: all .2s;
+      }
+  }
+  &-disabled {
+    pointer-events: none;
+    cursor: not-allowed;
+  }
+}

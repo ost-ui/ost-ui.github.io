@@ -2,11 +2,11 @@
 
 ---
 
-### 本地安装
+### 本地打包安装
 
 1, 将项目 clone 到本地，``` $ npm install ``` 安装依赖；
 
-2, ``` $ npm babel-cli ```  将项目编译；
+2, ``` $ npm run babel-cli ```  将项目编译；
 
 3, 将 ``` dist/npm ``` 目录里的文件 copy 到本地 (可自定义npm 文件夹名称)；
 
@@ -28,7 +28,7 @@ import { OstMask } from './npm';
 import { OstMask } from './npm/OstMask';
 ```
 
-### 远程安装
+### 通过 npm 安装
 
 1, 安装 ``` $ npm install ost-ui --save ```；
 

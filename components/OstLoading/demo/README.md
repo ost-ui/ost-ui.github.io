@@ -13,20 +13,9 @@
 
     render() {
        return( 
-            <div style={{
-                    width: '100%',
-                    padding: '10px'
-            }}>
-                <button
-                    style={{
-                        width: 'calc(100% - 20px)',
-                        height: '44px',
-                        position: 'fixed',
-                        bottom: '10px',
-                        zIndex: '10000',
-                        fontSize: '14px',
-                        background: '#fff'
-                    }}
+            <div className='demo-box'>
+                <button 
+                    className='demo-button'
                     onClick={()=>this.setState({isLoading: !this.state.isLoading})} > 
                     {this.state.isLoading ? '关闭 Loading' : '显示 Loading'}
                 </button>
@@ -35,4 +24,27 @@
        )
     }
 :::$
+```
+
+```css
+<style>
+.demo-box {
+    width: 100%;
+    padding: 10px;
+}
+
+.demo-button {
+    width: calc(100% - 20px);
+    height: 44px;
+    position: fixed;
+    bottom: 10px;
+    z-index: 10000;
+    font-size: 14px;
+    background: #FF6D00;
+    color: #fff;
+    border-radius: 100px;
+}
+
+</style>
+
 ```

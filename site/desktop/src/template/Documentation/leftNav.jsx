@@ -1,7 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 import './leftNav.less';
-import pagesArr from '../pages';
+import pagesArr from '../../../../pages';
 
 
 export default class LeftNav extends React.Component {
@@ -13,10 +13,10 @@ export default class LeftNav extends React.Component {
       <div className="ost-leftNav">
         <ul>
         {
-           pagesArr.map((ele, i) => [
-            i === 0 && <LeftNavHeader key={`t-${i}`} title="介绍"/>,
-            i === 2 && <LeftNavHeader key={`t-${i}`} title="组件"/>,
-            <li 
+           pagesArr.map((ele, i) => {
+            return [
+            ele.title && <LeftNavHeader key={`t-${i}`} title={ele.title}/>,
+            !ele.title && <li 
               className={classnames({'ost-leftNav-active': window.location.hash === `#/Documentation-${ele.hash}`})}
               key={`c-${i}`}
               onClick={() => {
@@ -25,7 +25,7 @@ export default class LeftNav extends React.Component {
               }} >
                  {ele.value}
             </li> 
-          ]
+          ]}
          )
         }
         </ul>

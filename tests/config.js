@@ -27,7 +27,8 @@ module.exports = {
         },
         include: [
           path.join(__dirname, '../components/'),
-          path.join(__dirname, '../tests/specs/')
+          path.join(__dirname, '../tests/specs/'),
+          path.join(__dirname, '../tests/utils/')
         ],
         exclude: /node_modules/
       },

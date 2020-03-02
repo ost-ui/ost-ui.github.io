@@ -1,0 +1,45 @@
+language: node_js
+
+notifications:
+  email:
+  - 228474838@qq.com
+  - 1123978215@qq.com
+  - celina520524@163.com
+
+node_js:
+    - 8.0.0
+    - 8.5.0
+    - 9.0.0
+    - 9.5.0
+    - 10.0.0
+    - 10.14.2
+
+env:
+  matrix:
+    - TEST_TYPE=build
+    - TEST_TYPE=compile
+    - TEST_TYPE=test
+
+before_install:
+  - export DISPLAY=:99.0
+  - sh -e /etc/init.d/xvfb start
+
+install:
+  - npm install
+  - npm install -g codecov
+
+script:
+  - |
+    if [ "$TEST_TYPE" = build ]; then
+      npm run build
+    elif [ "$TEST_TYPE" = compile ]; then
+      npm run babel-cli
+    elif [ "$TEST_TYPE" = test ]; then
+      npm run test
+    fi
+  - codecov
+
+branches:
+  only:
+  - develop_travis
+  - master

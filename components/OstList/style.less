@@ -1,0 +1,119 @@
+.ost-card {
+  width: initial;
+  height: auto;
+  background: #fff;
+  padding: 0 18 * @BU;
+  margin-bottom: 8 * @BU;
+
+  &-title {
+    width: auto;
+    height: 50 * @BU;
+    font-family: 'PingFangSC-Semibold';
+    font-size: 16 * @BU;
+    color: #333;
+    letter-spacing: 0;
+    display: flex;
+    align-items: center;
+  }
+
+  &-list {
+    width: auto;
+    height: 50 * @BU;
+    padding-right: 30 * @BU;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 16 * @BU;
+    border-bottom: 0.5 * @BU solid rgba(0, 0, 0, 0.1);
+
+    &-title {
+      height: 100%;
+      width: auto;
+      color: #333;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      white-space: nowrap;
+
+      &-box {
+        &-text {
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+        }
+        &-tips {
+          width: 12 * @BU;
+          height: 12 * @BU;
+          display: block;
+          margin-left: 5 * @BU;
+        }
+      }
+
+      &-desc {
+        font-family: PingFangSC-Regular;
+        font-size: 12 * @BU;
+        color: #999;
+        letter-spacing: 0;
+      }
+    }
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    &-children {
+      height: 100%;
+      width: auto;
+      display: flex;
+      justify-content: flex-end;
+      white-space: nowrap;
+    }
+  }
+
+  &-item {
+    height: 100%;
+    width: auto;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    color: #333;
+    position: relative;
+
+    &-text {
+      width: 100%;
+      text-align: right;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      /*! autoprefixer: ignore next */
+      -webkit-box-orient: vertical;
+
+      &-placeholder {
+
+        color: #BABFC9 !important;
+      }
+
+      &-disabled {
+
+        color: #90949E !important;
+      }
+    }
+
+    &-icon {
+      height: 12 * @BU;
+      width: 12 * @BU;
+      position: absolute;
+      top: calc(~'50% - 6*@{BU}');
+      right: -25 * @BU;
+
+      img {
+        width: 12 * @BU;
+        height: 12 * @BU;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+    }
+  }
+}

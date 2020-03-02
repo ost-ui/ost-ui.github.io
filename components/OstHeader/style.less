@@ -1,0 +1,48 @@
+.ost-header {
+    @h-height: 45 * @BU;
+    box-shadow: 0 0 4 * @BU 0 rgba(60,107,240,0.10);
+    position: fixed;
+    top:0;
+    z-index: 999;
+    width: 100%;
+    height: @h-height;
+    line-height: @h-height;
+    background-color: #ffffff;
+    color: #333;
+    overflow: hidden;
+    .ost-header-left {
+        position: absolute;
+        width: @h-height;
+        height: @h-height;
+        i { //左按钮为 返回箭头图标 时的样式
+            width: 12 * @BU;
+            height: 12 * @BU;
+            border: 1 * @BU solid #BABFC9;
+            transform:rotate(45deg);
+            border-top: none;
+            border-right: none;
+            position: absolute;
+            top:15 * @BU;
+            left: 15 * @BU;
+        }
+    }
+    .ost-header-title {
+        font-size: 16 * @BU;
+        width: 100%;
+        text-align: center;
+        height: 100%;
+    }
+    .ost-header-right {
+        font-size: 14 * @BU;
+        position: absolute;
+        text-align: right;
+        right: 0;
+        top: 0;
+        padding-right: 10 * @BU;
+    }
+
+    &-height-polyfill {
+        height: @h-height;
+        min-height: @h-height;
+    }
+}
